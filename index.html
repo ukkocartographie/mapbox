@@ -148,7 +148,7 @@
             geojson.features.push(linestring);
             // Populate the distanceContainer with total distance
             var value = document.createElement('pre');
-            var distMeters = turf.lineDistance(linestring); 
+            var distMeters = (turf.lineDistance(linestring))*100; 
             value.textContent = 'Total distance: ' + distMeters.toLocaleString() + 'km';
             distanceContainer.appendChild(value);
           }
