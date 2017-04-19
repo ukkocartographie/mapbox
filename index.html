@@ -149,7 +149,7 @@
             // Populate the distanceContainer with total distance
             var value = document.createElement('pre');
             var distMeters = (turf.lineDistance(linestring))*1000; 
-            value.textContent = 'Total distance: ' + distMeters.toLocaleString() + 'km';
+            value.textContent = 'Distance totale: ' + distMeters.toLocaleString() + 'm';
             distanceContainer.appendChild(value);
           }
           map.getSource('geojson').setData(geojson);
