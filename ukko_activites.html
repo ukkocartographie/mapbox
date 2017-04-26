@@ -28,7 +28,27 @@
       container: 'map',
       style: 'mapbox://styles/ukko/cj1yyv130001g2skh4qg2f5wt' // replace this with your style
     });
+    //Pop up windows  
     // code from the next step will go here
+      map.on('click', function(e) {
+  var features = map.queryRenderedFeatures(e.point, {
+    layers: ['ukko-activites'] // replace this with the name of the layer
+  });
+
+  if (!features.length) {
+    return;
+  }
+
+  var feature = features[0];
+
+  var popup = new mapboxgl.Popup({ offset: [0, -15] })
+    .setLngLat(feature.geometry.coordinates)
+    .setHTML('<h3>' + feature.properties.commune + '</h3><p>' + feature.properties.description + '</p>')
+    .setLngLat(feature.geometry.coordinates)
+    .addTo(map);
+});
+
+
     </script>
   </body>
 </html>
